@@ -1,31 +1,36 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { GardenPortal } from './components/GardenPortal'
 import { ThoughtTicker } from './components/ThoughtTicker'
+const Spline = React.lazy(() => import('@splinetool/react-spline'));
 
 function App() {
   return (
-    <>
+    <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
       <ThoughtTicker />
-      <div className="misty-background"></div>
       
-      {/* Decorative floating elements */}
-      <div className="seed" style={{ top: '20%', left: '15%', animationDelay: '0s' }}></div>
-      <div className="seed" style={{ top: '60%', right: '10%', animationDelay: '2s' }}></div>
-      <div className="seed" style={{ top: '80%', left: '40%', animationDelay: '4s' }}></div>
+      {/* 3D Background Layer */}
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', z-index: 0 }}>
+        <Suspense fallback={<div className="misty-background" />}>
+          <Spline scene="https://prod.spline.design/6Wq1Q7YGyWfLz7pu/scene.splinecode" />
+        </Suspense>
+      </div>
 
-      <div className="glass-container">
-        <h1>Fern's Sanctuary</h1>
-        <p className="quote">
-          "A gentle, patient sanctuary with misty skies, unfurling seeds, and deep greens."
-        </p>
-        
-        <div className="status-box">
-          <p>Your sanctuary is breathing. The seeds are safe.</p>
+      {/* Glass Content Overlay */}
+      <div style={{ position: 'relative', zIndex: 10, pointerEvents: 'none' }}>
+        <div className="glass-container" style={{ pointerEvents: 'auto', marginTop: '20vh' }}>
+          <h1>Fern's Sanctuary</h1>
+          <p className="quote">
+            "A gentle, patient sanctuary with misty skies, unfurling seeds, and deep greens."
+          </p>
+          
+          <div className="status-box">
+            <p>Your sanctuary is breathing. The seeds are safe.</p>
+          </div>
         </div>
       </div>
 
       <GardenPortal />
-    </>
+    </div>
   )
 }
 

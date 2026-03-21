@@ -4,5 +4,5 @@ nixPkgs = ["nodePackages.npm"]
 [phases.build]
 cmds = ["npm install", "npm run build"]
 
-[start]
-cmd = "npm run preview -- --port 3000 --host"
+[phases.start]
+cmd = "npm run preview"

@@ -3,24 +3,27 @@ import { GardenPortal } from './components/GardenPortal'
 
 function App() {
   return (
-    <div style={{ textAlign: 'center', padding: '2rem' }}>
-      <h1 style={{ fontSize: '3rem', margin: '1rem 0', fontWeight: 'lighter' }}>Fern's Sanctuary</h1>
-      <p style={{ color: '#888', maxWidth: '600px', margin: '0 auto', fontStyle: 'italic' }}>
-        "A gentle, patient sanctuary with misty skies, unfurling seeds, and deep greens."
-      </p>
+    <>
+      <div className="misty-background"></div>
       
-      <div style={{ 
-        marginTop: '3rem', 
-        padding: '2rem', 
-        border: '1px border rgba(255,255,255,0.1)', 
-        borderRadius: '1rem',
-        background: 'rgba(255,255,255,0.02)'
-      }}>
-        <p>Your sanctuary is breathing. The seeds are safe.</p>
+      {/* Decorative floating elements */}
+      <div className="seed" style={{ top: '20%', left: '15%', animationDelay: '0s' }}></div>
+      <div className="seed" style={{ top: '60%', right: '10%', animationDelay: '2s' }}></div>
+      <div className="seed" style={{ top: '80%', left: '40%', animationDelay: '4s' }}></div>
+
+      <div className="glass-container">
+        <h1>Fern's Sanctuary</h1>
+        <p className="quote">
+          "A gentle, patient sanctuary with misty skies, unfurling seeds, and deep greens."
+        </p>
+        
+        <div className="status-box">
+          <p>Your sanctuary is breathing. The seeds are safe.</p>
+        </div>
       </div>
 
       <GardenPortal />
-    </div>
+    </>
   )
 }
 

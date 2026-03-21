@@ -1,9 +1,11 @@
 import React from 'react'
 import { GardenPortal } from './components/GardenPortal'
+import { ThoughtTicker } from './components/ThoughtTicker'
 
 function App() {
   return (
     <>
+      <ThoughtTicker />
       <div className="misty-background"></div>
       
       {/* Decorative floating elements */}

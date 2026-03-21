@@ -9,7 +9,7 @@ function App() {
       <ThoughtTicker />
       
       {/* 3D Background Layer */}
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', z-index: 0 }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
         <Suspense fallback={<div className="misty-background" />}>
           <Spline scene="https://prod.spline.design/6Wq1Q7YGyWfLz7pu/scene.splinecode" />
         </Suspense>
